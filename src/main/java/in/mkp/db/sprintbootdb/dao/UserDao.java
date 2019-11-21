@@ -25,10 +25,10 @@ public class UserDao {
 
     public List<UserEntity> getAllUsers() {
         String sql1 = "select * from test_demo_user_tablev1";
-        List<UserEntity> list1 = jdbcTemplate1.query(sql1, new UserRowMapper());
+        List<UserEntity> list1 = this.jdbcTemplate1.query(sql1, new UserRowMapper());
 
         String sql2 = "select * from test_demo_user_tablev2";
-        List<UserEntity> list2 = jdbcTemplate2.query(sql2, new UserRowMapper());
+        List<UserEntity> list2 = this.jdbcTemplate2.query(sql2, new UserRowMapper());
 
         List<UserEntity> listAll = Stream.concat(list1.stream(), list2.stream())
                 .collect(Collectors.toList());
